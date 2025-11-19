@@ -1,0 +1,41 @@
+A continuación, se detallan los errores identificados en el código fuente original y las soluciones aplicadas para lograr el funcionamiento correcto de la aplicación To-Do List.
+
+1. Error de Inclusión de Archivos (Ruta Relativa Fallida)
+Archivo Editado: app/Models/TareaModel.php
+
+Sección Modificada: Inicio del archivo, línea de inclusión de la base de datos.
+
+Problema Detectado: El archivo utilizaba require_once 'Database.php'. Al ejecutarse la aplicación desde el index.php (ubicado en la carpeta public), PHP buscaba el archivo Database.php dentro de public en lugar de app/Models/, generando un Fatal Error.
+
+Solución Aplicada: Se modificó la inclusión utilizando la constante mágica __DIR__ para forzar una ruta absoluta relativa al directorio actual del modelo.
+
+Código: require_once __DIR__ . '/Database.php';
+
+2. Error de Carga de Vistas (Paths incorrectos en Controlador)
+Archivo Editado: app/Controllers/TareaController.php
+
+Sección Modificada: Método index().
+
+Problema Detectado: Se intentaba cargar la vista con require_once '../app/Views/task_list.php'. El uso de rutas relativas (../) es propenso a errores si se cambia la estructura de carpetas o la configuración del servidor.
+
+Solución Aplicada: Se utilizó la constante ROOT_PATH (definida en el index) para construir la ruta absoluta hacia la vista, garantizando que el archivo siempre sea encontrado independientemente del directorio de ejecución.
+
+Código: require_once ROOT_PATH . '/app/Views/task_list.php';
+
+3. Estructura de Directorios y Punto de Entrada
+Archivo Editado: indextodo.php (Renombrado a index.php y movido).
+
+Sección Modificada: Definición de ROOT_PATH.
+
+Problema Detectado: El archivo original no tenía una ubicación clara dentro de la arquitectura MVC estándar. Además, definía ROOT_PATH como dirname(__DIR__), lo cual requiere que el archivo esté dentro de una subcarpeta (como public) para apuntar correctamente a la raíz del proyecto.
+
+Solución Aplicada: Se reestructuró el proyecto creando una carpeta public/ para los archivos accesibles vía web y una carpeta app/ para la lógica. Se movió el archivo a public/index.php para cumplir con la definición de la constante raíz.
+
+4. Configuración de Base de Datos
+Archivo Editado: app/Models/Database.php
+
+Sección Modificada: Propiedades de la clase ($user, $pass, $db).
+
+Problema Detectado: La configuración de conexión debía alinearse con el entorno local (XAMPP/WAMP) y con el script SQL provisto.
+
+Solución Aplicada: Se verificó que el nombre de la base de datos fuera todo_app (según el archivo .sql) y se establecieron las credenciales estándar (root sin contraseña).
