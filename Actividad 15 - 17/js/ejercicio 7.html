@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 7</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button onclick="menorDiez()">Menor a diez</button>
+    <script type="text/javascript">
+        function menorDiez() {
+            let num1 = parseInt(prompt("Ingrese el primer numero"));
+            let num2 = parseInt(prompt("Ingrese el segundo numero"));
+            let num3 = parseInt(prompt("Ingrese el tercer numero"));
+            if (num1 < 10) {
+                if (num2 < 10) {
+                    if (num3 < 10) {
+                        document.write("Todos los numeros son menores a diez");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

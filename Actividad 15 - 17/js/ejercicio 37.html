@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 37 - Clase Producto</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Definimos la clase Producto
+        class Producto {
+            constructor() {
+                this.precio = 0;
+                this.cantidad = 0;
+            }
+            
+            cargarPrecio(precio) {
+                this.precio = precio;
+            }
+            
+            cargarCantidad(cantidad) {
+                this.cantidad = cantidad;
+            }
+            
+            calcularTotal() {
+                return this.precio * this.cantidad;
+            }
+        }
+        
+        let p = new Producto();
+        p.cargarPrecio(100); // Cargamos el precio
+        p.cargarCantidad(3); // Cargamos la cantidad
+        document.write('El total es: ' + p.calcularTotal());
+    </script>
+</body>
+</html>

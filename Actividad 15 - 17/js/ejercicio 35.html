@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 35 - Propiedad navigator</title>
+    <script type="text/javascript">
+        function verificarCookies() {
+            if (navigator.cookieEnabled) {
+                alert("Las cookies están activas en este navegador.");
+            } else {
+                alert("Las cookies están desactivadas en este navegador.");
+            }
+        }
+    </script>
+</head>
+<body onload="verificarCookies()">
+    <h2>Propiedad navigator del objeto window</h2>
+    <p>Este mensaje aparece al cargar la página para informar si las cookies están habilitadas.</p>
+</body>
+</html>

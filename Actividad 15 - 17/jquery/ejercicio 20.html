@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 20 - Efecto con fadeTo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #divTexto {
+            padding: 20px;
+            background-color: #ffe4e1;
+            border: 2px solid #ff6347;
+            border-radius: 8px;
+            width: 60%;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Efecto con fadeTo</h2>
+    <p>Haz clic en el div para cambiar su opacidad a 0.20 y luego de vuelta a 1.0.</p>
+    <div id="divTexto">
+        <h3>Contenido del div</h3>
+        <p>Este div cambiará su opacidad usando fadeTo cuando hagas clic en él.</p>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            $("#divTexto").click(function() {
+                $(this).fadeTo(1000, 0.20, function() {
+                    $(this).fadeTo(1000, 1.0);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

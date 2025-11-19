@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Selección por clases CSS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .noticia {
+            border: 1px solid #ccc;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .titulo {
+            font-weight: bold;
+            color: #333;
+        }
+        .descripcion {
+            margin-top: 10px;
+            color: #666;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Noticias - Cambiar tamaño de fuente</h2>
+    
+    <div class="noticia">
+        <div class="titulo">Noticia 1: Tecnología</div>
+        <div class="descripcion">Esta es la descripción de la primera noticia sobre avances tecnológicos.</div>
+    </div>
+    
+    <div class="noticia">
+        <div class="titulo">Noticia 2: Deportes</div>
+        <div class="descripcion">Esta es la descripción de la segunda noticia sobre deportes nacionales.</div>
+    </div>
+    
+    <div class="noticia">
+        <div class="titulo">Noticia 3: Economía</div>
+        <div class="descripcion">Esta es la descripción de la tercera noticia sobre economía mundial.</div>
+    </div>
+    
+    <button id="pequeno">Fuente Pequeña</button>
+    <button id="mediano">Fuente Mediana</button>
+    <button id="grande">Fuente Grande</button>
+    
+    <script>
+        $(document).ready(function() {
+            $("#pequeno").click(function() {
+                $(".descripcion").css("font-size", "12px");
+            });
+            
+            $("#mediano").click(function() {
+                $(".descripcion").css("font-size", "16px");
+            });
+            
+            $("#grande").click(function() {
+                $(".descripcion").css("font-size", "20px");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 23 - Control PASSWORD</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form>
+        <label>Ingrese su contraseña:</label>
+        <input type="password" id="clave1">
+        <br><br>
+        <label>Vuelva a ingresar su contraseña:</label>
+        <input type="password" id="clave2">
+        <br><br>
+        <input type="button" value="Verificar" onclick="verificarClaves()">
+    </form>
+    <script type="text/javascript">
+        function verificarClaves() {
+            let clave1 = document.getElementById("clave1").value;
+            let clave2 = document.getElementById("clave2").value;
+            if (clave1 == clave2) {
+                alert("Las contraseñas coinciden");
+            } else {
+                alert("Las contraseñas no coinciden");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 49 - Array: instrucción delete</title>
+</head>
+<body>
+    <h1>Array: instrucción delete</h1>
+    <button onclick="ejecutarDelete()">Ejecutar delete</button>
+    <div id="resultado"></div>
+    <script>
+        function ejecutarDelete() {
+            let frutas = ["Manzana", "Banana", "Naranja"];
+            
+            let mensaje = `<p>Array original: [${frutas.join(', ')}]</p>`;
+            console.log("Array original:", frutas);
+            
+            // Usar delete para eliminar el segundo elemento (índice 1)
+            delete frutas[1]; // Elimina "Banana" pero deja un hueco
+            
+            mensaje += `<p>Después de delete frutas[1]: [${frutas.toString()}]</p>`;
+            mensaje += `<p>Elemento eliminado (índice 1): ${frutas[1]}</p>`;
+            mensaje += `<p>Longitud del array: ${frutas.length}</p>`;
+            mensaje += `<p><em>Nota: delete deja un hueco (undefined) pero no cambia la longitud del array</em></p>`;
+            
+            console.log("Después de delete:", frutas);
+            console.log("Elemento eliminado (índice 1):", frutas[1]);
+            console.log("Longitud del array:", frutas.length);
+            
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

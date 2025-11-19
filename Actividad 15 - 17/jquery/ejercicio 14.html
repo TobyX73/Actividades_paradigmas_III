@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 14 - Eventos mousedown y mouseup</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Eventos mousedown y mouseup</h2>
+    <button id="boton1">Botón 1</button>
+    <button id="boton2">Botón 2</button>
+    
+    <script>
+        $(document).ready(function() {
+            $("#boton1, #boton2").mousedown(function() {
+                $(this).css("background-color", "#dc3545");
+            });
+            
+            $("#boton1, #boton2").mouseup(function() {
+                $(this).css("background-color", "#007bff");
+            });
+        });
+    </script>
+</body>
+</html>

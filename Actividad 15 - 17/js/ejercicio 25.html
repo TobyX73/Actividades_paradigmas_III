@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 25 - Checkbox deportes</title>
+</head>
+<body>
+    <label><input type="checkbox" id="fut"> Fútbol</label><br>
+    <label><input type="checkbox" id="bas"> Básket</label><br>
+    <label><input type="checkbox" id="ten"> Tenis</label><br><br>
+    <button onclick="ver()">Ver seleccionados</button>
+    <script>
+        function ver() {
+            var elegidos = [];
+            if (document.getElementById('fut').checked)
+                elegidos.push('Fútbol');
+            if (document.getElementById('bas').checked)
+                elegidos.push('Básket');
+            if (document.getElementById('ten').checked)
+                elegidos.push('Tenis');
+            alert(elegidos.length ? 'Elegiste: ' + elegidos.join(', ')
+                : 'No elegiste ningún deporte');
+        }
+    </script>
+</body>
+</html>

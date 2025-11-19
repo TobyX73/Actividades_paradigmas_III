@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 17 - Clase Date</title>
+</head>
+<body>
+    <script>
+        function obtenerFechaFormateada() {
+            let fecha = new Date();
+            let dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+            let meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+            return "Hoy es " + dias[fecha.getDay()] + " " + fecha.getDate() +
+                   " de " + meses[fecha.getMonth()] + " de " + fecha.getFullYear();
+        }
+        document.write(obtenerFechaFormateada());
+    </script>
+</body>
+</html>

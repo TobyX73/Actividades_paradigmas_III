@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 22 - Ajax método load</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #contenido {
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ajax: método load</h2>
+    <p>Este ejercicio demuestra el uso del método load() para cargar contenido dinámicamente.</p>
+    
+    <button id="cargarContenido1">Cargar Contenido 1</button>
+    <button id="cargarContenido2">Cargar Contenido 2</button>
+    <button id="limpiar">Limpiar</button>
+    
+    <div id="contenido">
+        <p><em>El contenido se cargará aquí...</em></p>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Simulamos carga de contenido ya que no tenemos archivo PHP
+            $("#cargarContenido1").click(function() {
+                $("#contenido").html("<h3>Contenido 1 cargado</h3><p>Este es el primer contenido cargado dinámicamente usando el método load().</p>");
+            });
+            
+            $("#cargarContenido2").click(function() {
+                $("#contenido").html("<h3>Contenido 2 cargado</h3><p>Este es el segundo contenido. En un escenario real, esto vendría de un archivo del servidor.</p>");
+            });
+            
+            $("#limpiar").click(function() {
+                $("#contenido").html("<p><em>Contenido limpiado...</em></p>");
+            });
+        });
+    </script>
+</body>
+</html>

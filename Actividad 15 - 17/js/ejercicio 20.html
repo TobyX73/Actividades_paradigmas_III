@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 20 - Clase String</title>
+</head>
+<body>
+    <script>
+        function nombres() {
+            let num = 0;
+            let nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            while (nombre != "Fin") {
+                num++;
+                nombre = prompt("Ingrese un nombre o 'Fin' para terminar");
+            }
+            document.write("Se ingresaron " + num + " nombres");
+        }
+        nombres();
+    </script>
+</body>
+</html>

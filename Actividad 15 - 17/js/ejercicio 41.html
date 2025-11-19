@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 41 - Array: Diferentes formas de crearlos</title>
+</head>
+<body>
+    <h1>Array: Diferentes formas de crearlos</h1>
+    <h2>Días de la semana</h2>
+    <ul id="listaDias"></ul>
+    <h2>Meses del año</h2>
+    <ul id="listaMeses"></ul>
+    <script>
+        // 1. Primera forma: usando corchetes []
+        let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+        
+        // 2. Segunda forma: usando el constructor new Array()
+        let meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+        
+        const listaDias = document.getElementById("listaDias");
+        const listaMeses = document.getElementById("listaMeses");
+        
+        diasSemana.forEach(dia => {
+            let item = document.createElement("li");
+            item.textContent = dia;
+            listaDias.appendChild(item);
+        });
+        
+        meses.forEach(mes => {
+            let item = document.createElement("li");
+            item.textContent = mes;
+            listaMeses.appendChild(item);
+        });
+    </script>
+</body>
+</html>

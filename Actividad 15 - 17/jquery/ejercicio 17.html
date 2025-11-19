@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 17 - Evento blur</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Evento blur</h2>
+    <input type="text" id="miInput" placeholder="Ingrese algún texto">
+    
+    <script>
+        function pierdefoco() {
+            let x = $(this);
+            let cadena = x.val();
+            if (cadena.length == 0) {
+                alert("No ingreso datos");
+            }
+        }
+        
+        $(document).ready(function() {
+            $("#miInput").blur(pierdefoco);
+        });
+    </script>
+</body>
+</html>

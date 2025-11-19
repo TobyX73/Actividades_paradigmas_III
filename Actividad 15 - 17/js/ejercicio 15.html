@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 15</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button onclick="numeroMenor()">Numero entero menor</button>
+    <script type="text/javascript">
+        function numeroMenor() {
+            let num1 = parseInt(prompt("Ingrese el primer número:"));
+            let num2 = parseInt(prompt("Ingrese el segundo número:"));
+            let num3 = parseInt(prompt("Ingrese el tercer número:"));
+            mostrarMenor(num1, num2, num3);
+        }
+        
+        function mostrarMenor(num1, num2, num3) {
+            let menor = -1;
+            if (num1 < num2 && num1 < num3) {
+                menor = num1;
+            }
+            if (num2 < num1 && num2 < num3) {
+                menor = num2;
+            }
+            if (num3 < num2 && num3 < num1) {
+                menor = num3;
+            }
+            document.write("El número menor es: " + menor);
+        }
+    </script>
+</body>
+</html>

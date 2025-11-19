@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 42 - Array densos</title>
+</head>
+<body>
+    <h1>Array: densos</h1>
+    <button onclick="ejecutar()">Generar arrays</button>
+    <div id="resultado"></div>
+    <script>
+        function ejecutar() {
+            let vector1 = [];
+            for (let i = 0; i < 10; i++) {
+                let numeroAleatorio = Math.floor(Math.random() * 500) + 1;
+                vector1.push(numeroAleatorio);
+            }
+            
+            let vectorMenores = [];
+            let vectorMayores = [];
+            
+            for (let i = 0; i < vector1.length; i++) {
+                if (vector1[i] < 250) {
+                    vectorMenores.push(vector1[i]);
+                } else {
+                    vectorMayores.push(vector1[i]);
+                }
+            }
+            
+            document.getElementById("resultado").innerHTML = `
+                <p>Vector original: [${vector1.join(", ")}]</p>
+                <p>Cantidad de elementos menores a 250: ${vectorMenores.length}</p>
+                <p>Vector menores a 250: [${vectorMenores.join(", ")}]</p>
+                <p>Cantidad de elementos mayores o iguales a 250: ${vectorMayores.length}</p>
+                <p>Vector mayores o iguales a 250: [${vectorMayores.join(", ")}]</p>
+            `;
+        }
+    </script>
+</body>
+</html>

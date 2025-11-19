@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 47 - Array: método join</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Datos de 5 Personas</h1>
+    <button onclick="cargarPersonas()">Cargar Datos</button>
+    <div id="resultado"></div>
+    <script>
+        function cargarPersonas() {
+            var personas = [];
+            for (var i = 1; i <= 5; i++) {
+                var nombre = prompt("Ingrese el nombre de la persona " + i + ":");
+                personas.push(nombre);
+            }
+
+            var personasString = personas.join("<br>");
+
+            document.getElementById("resultado").innerHTML =
+                "<h3>Lista de personas ingresadas:</h3>" +
+                personasString;
+        }
+    </script>
+</body>
+</html>

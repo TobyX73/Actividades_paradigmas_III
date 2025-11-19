@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 24 - Control SELECT</title>
+</head>
+<body>
+    <label for="tipoPizza">Elija su pizza:</label>
+    <select id="tipoPizza" onchange="mostrarPrecio()">
+        <option value="">-- Seleccione una opción --</option>
+        <option value="9500">Jamón y Queso</option>
+        <option value="7800">Muzzarella</option>
+        <option value="8900">Morrones</option>
+    </select>
+    <br><br>
+    <label for="precioPizza">Precio:</label>
+    <input type="text" id="precioPizza">
+    <script type="text/javascript">
+        function mostrarPrecio() {
+            let selectPizza = document.getElementById("tipoPizza");
+            let precio = selectPizza.value;
+            let campoPrecio = document.getElementById("precioPizza");
+            if (precio) {
+                campoPrecio.value = precio;
+            } else {
+                campoPrecio.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

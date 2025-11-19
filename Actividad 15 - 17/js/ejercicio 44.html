@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 44 - push y pop</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Vector con valores aleatorios</h2>
+    <button onclick="ejecutar()">Ejecutar</button>
+    <p id="vector"></p>
+    <p id="suma"></p>
+    <p id="tamaño"></p>
+    <script>
+        function ejecutar() {
+            let vector = [];
+            for (let i = 0; i < 5; i++) {
+                vector.push(Math.floor(Math.random() * 1000) + 1);
+            }
+            
+            document.write("Vector original: [" + vector.join(", ") + "]<br>");
+            
+            let ultimo = vector.pop();
+            let penultimo = vector.pop();
+            let suma = ultimo + penultimo;
+            
+            document.getElementById("vector").textContent = "Vector final: [" + vector.join(", ") + "]";
+            document.getElementById("suma").textContent = "Suma de los dos últimos: " + suma;
+            document.getElementById("tamaño").textContent = "Tamaño final del vector: " + vector.length;
+        }
+    </script>
+</body>
+</html>

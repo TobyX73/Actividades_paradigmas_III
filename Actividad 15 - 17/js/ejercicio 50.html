@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 50 - Funciones: objeto arguments</title>
+</head>
+<body>
+    <h1>Funciones: objeto arguments</h1>
+    <button onclick="probarFuncion()">Probar función máximo</button>
+    <div id="resultado"></div>
+    <script>
+        function obtenerMaximo() {
+            // Usar el objeto arguments para acceder a todos los parámetros
+            if (arguments.length === 0) {
+                return null;
+            }
+            
+            let maximo = arguments[0];
+            for (let i = 1; i < arguments.length; i++) {
+                if (arguments[i] > maximo) {
+                    maximo = arguments[i];
+                }
+            }
+            return maximo;
+        }
+        
+        function probarFuncion() {
+            // Probar la función con diferentes cantidades de parámetros
+            let resultado1 = obtenerMaximo(5, 10, 3, 8, 15, 2);
+            let resultado2 = obtenerMaximo(100, 50, 75);
+            let resultado3 = obtenerMaximo(42);
+            let resultado4 = obtenerMaximo(-5, -10, -2, -8);
+            
+            let mensaje = `
+                <h3>Resultados de la función obtenerMaximo():</h3>
+                <p>obtenerMaximo(5, 10, 3, 8, 15, 2) = ${resultado1}</p>
+                <p>obtenerMaximo(100, 50, 75) = ${resultado2}</p>
+                <p>obtenerMaximo(42) = ${resultado3}</p>
+                <p>obtenerMaximo(-5, -10, -2, -8) = ${resultado4}</p>
+                <p><em>La función puede recibir cualquier cantidad de números usando el objeto arguments</em></p>
+            `;
+            
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

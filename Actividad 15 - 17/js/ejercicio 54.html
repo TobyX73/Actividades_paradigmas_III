@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 54 - Expresiones regulares</title>
+</head>
+<body>
+    <h1>Validación con expresiones regulares</h1>
+    <p>Ingrese un número con el formato: 3 dígitos enteros, punto, 2 dígitos decimales (ej: 123.45)</p>
+    <input type="text" id="numeroInput" placeholder="123.45">
+    <button onclick="validarNumero()">Validar</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function validarNumero() {
+            let numero = document.getElementById("numeroInput").value;
+            
+            // Expresión regular: 3 dígitos, punto, 2 dígitos decimales
+            // ^ indica inicio de cadena
+            // \d{3} indica exactamente 3 dígitos
+            // \. indica un punto literal (escapado)
+            // \d{2} indica exactamente 2 dígitos
+            // $ indica fin de cadena
+            let patron = /^\d{3}\.\d{2}$/;
+            
+            let esValido = patron.test(numero);
+            
+            let mensaje = `
+                <h3>Resultado de la validación:</h3>
+                <p>Número ingresado: "${numero}"</p>
+                <p>Patrón esperado: 3 dígitos + punto + 2 dígitos decimales</p>
+                <p>Expresión regular: /^\\d{3}\\.\\d{2}$/</p>
+                <p><strong>Resultado: ${esValido ? 'VÁLIDO ✓' : 'INVÁLIDO ✗'}</strong></p>
+            `;
+            
+            if (esValido) {
+                mensaje += `<p style="color: green;">El número cumple con el formato requerido.</p>`;
+            } else {
+                mensaje += `<p style="color: red;">El número NO cumple con el formato requerido.</p>`;
+                mensaje += `<p><em>Ejemplos válidos: 123.45, 999.00, 001.99</em></p>`;
+            }
+            
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+        
+        // Permitir validar con Enter
+        document.getElementById("numeroInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                validarNumero();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 21 - Iteración con each</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Iteración por los elementos (each)</h2>
+    <p>Enlaces en la página:</p>
+    <ul>
+        <li><a href="http://www.google.com">Google</a></li>
+        <li><a href="https://www.wikipedia.org">Wikipedia</a></li>
+        <li><a href="http://www.yahoo.com">Yahoo</a></li>
+        <li><a href="https://github.com">GitHub</a></li>
+        <li><a href="http://www.stackoverflow.com">Stack Overflow</a></li>
+    </ul>
+    
+    <script>
+        $(document).ready(function() {
+            $("a").each(function() {
+                var href = $(this).attr("href");
+                if (href && href.indexOf("http://") !== -1) {
+                    $(this).addClass("resaltado");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

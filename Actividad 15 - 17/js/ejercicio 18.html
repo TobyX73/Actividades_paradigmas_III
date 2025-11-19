@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 18 - Clase Array</title>
+</head>
+<body>
+    <script>
+        function procesarVector() {
+            let vector = [];
+            let sumaTotal = 0;
+            let sumaMayores36 = 0;
+            let cantidadMayores36 = 0;
+            for (let i = 0; i < 8; i++) {
+                let elem = parseInt(prompt("Ingrese el elemento " + (i+1)));
+                vector[i] = elem;
+                sumaTotal += elem;
+                if (elem > 36) {
+                    sumaMayores36 += elem;
+                    cantidadMayores36++;
+                }
+            }
+            document.write("Suma total: " + sumaTotal + "<br>");
+            document.write("Suma mayores a 36: " + sumaMayores36 + "<br>");
+            document.write("Cantidad mayores a 36: " + cantidadMayores36);
+        }
+        procesarVector();
+    </script>
+</body>
+</html>

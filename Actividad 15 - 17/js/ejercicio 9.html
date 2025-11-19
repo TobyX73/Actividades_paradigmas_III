@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 9</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        const app = document.createElement("div");
+        document.body.appendChild(app);
+
+        const s = "1. casa<br>2. mesa<br>3. perro<br>4. gato";
+        app.innerHTML = s;
+
+        function traductor() {
+            const t = prompt("Ingresa el numero a traducir (1-4):", "1");
+
+            const n = Number(t);
+            let traduccion = "";
+
+            switch (n) {
+                case 1:
+                    traduccion = "house";
+                    break;
+                case 2:
+                    traduccion = "table";
+                    break;
+                case 3:
+                    traduccion = "dog";
+                    break;
+                case 4:
+                    traduccion = "cat";
+                    break;
+                default:
+                    app.innerHTML += "<br><em>numero invalido. proba con 1-4.</em>";
+                    return;
+            }
+
+            app.innerHTML += "<br><strong>traduccion:</strong> " + traduccion;
+        }
+
+        traductor();
+    </script>
+</body>
+</html>

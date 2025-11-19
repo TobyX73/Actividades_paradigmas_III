@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Selección de elementos por el tipo de elementos</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<ul>
+<li>Opción número 1</li>
+<li>Opción número 2</li>
+<li>Opción número 3</li>
+<li>Opción número 4</li>
+</ul>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+let $x = $(document);
+$x.ready(inicializarEventos);
+function inicializarEventos() {
+let $x = $("li");
+$x.click(presionItem);
+}
+function presionItem() {
+let $x = $(this);
+$x.hide();
+}
+</script>
+</body>
+</html>

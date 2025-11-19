@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 46 - Vector de valores</title>
+</head>
+<body>
+    <h1>Vector de valores</h1>
+    <button onclick="mostrarVector()">Mostrar vector original</button>
+    <button onclick="modificarVector()">Modificar vector</button>
+    <div id="resultado"></div>
+    <script>
+        // Vector inicial
+        let vector = [3, 2, 5, 2, 7, 8, 2, 9];
+        
+        function mostrarVector() {
+            document.getElementById("resultado").innerHTML =
+                "Vector original: [" + vector.join(", ") + "]";
+        }
+        
+        function modificarVector() {
+            let nuevoVector = [];
+            for (let i = 0; i < vector.length; i++) {
+                if (vector[i] === 2) {
+                    nuevoVector.push(1, 1); // insertar dos elementos 1
+                } else {
+                    nuevoVector.push(vector[i]);
+                }
+            }
+            document.getElementById("resultado").innerHTML =
+                "Vector modificado: [" + nuevoVector.join(", ") + "]";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 52 - setTimeout</title>
+</head>
+<body>
+    <h1>Redirección automática con setTimeout</h1>
+    <p>Esta página se redirigirá automáticamente a Google en <span id="contador">10</span> segundos...</p>
+    <button onclick="cancelarRedireccion()">Cancelar redirección</button>
+    <div id="estado"></div>
+    
+    <script>
+        let tiempoRestante = 10;
+        let timeoutId;
+        let intervalId;
+        
+        function actualizarContador() {
+            document.getElementById("contador").textContent = tiempoRestante;
+            if (tiempoRestante > 0) {
+                tiempoRestante--;
+            }
+        }
+        
+        function redirigir() {
+            document.getElementById("estado").innerHTML = "<p><strong>Redirigiendo...</strong></p>";
+            window.location.href = "https://www.google.com";
+        }
+        
+        function cancelarRedireccion() {
+            clearTimeout(timeoutId);
+            clearInterval(intervalId);
+            document.getElementById("estado").innerHTML = "<p><strong>Redirección cancelada</strong></p>";
+            document.getElementById("contador").textContent = "cancelado";
+        }
+        
+        // Configurar la redirección después de 10 segundos
+        timeoutId = setTimeout(redirigir, 10000);
+        
+        // Actualizar el contador cada segundo
+        intervalId = setInterval(actualizarContador, 1000);
+    </script>
+</body>
+</html>

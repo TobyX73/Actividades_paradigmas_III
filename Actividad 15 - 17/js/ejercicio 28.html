@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 28 - Eventos onFocus y onBlur</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Validación de Contraseña</h1>
+    <form>
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre"><br><br>
+        
+        <label>Contraseña:</label><br>
+        <input type="password" id="clave" onblur="validarContrasena()"><br><br>
+    </form>
+    
+    <script type="text/javascript">
+        function validarContrasena() {
+            var contrasena = document.getElementById("clave").value;
+            if (contrasena.length < 7 || contrasena.length > 20) {
+                alert("La contraseña debe tener entre 7 y 20 caracteres.");
+            }
+        }
+    </script>
+</body>
+</html>

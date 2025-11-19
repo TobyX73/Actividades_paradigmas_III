@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 48 - Array: método toString</title>
+</head>
+<body>
+    <h1>Comparación toString() vs join()</h1>
+    <button onclick="compararMetodos()">Comparar métodos</button>
+    <div id="resultado"></div>
+    <script>
+        function compararMetodos() {
+            // Crear un vector de 10 elementos
+            let vector = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            
+            // Primera variable usando toString()
+            let resultado1 = vector.toString();
+            
+            // Segunda variable usando join() sin parámetros
+            let resultado2 = vector.join();
+            
+            let mensaje = `<p>Vector original: [${vector.join(', ')}]</p>`;
+            mensaje += `<p>Resultado toString(): "${resultado1}"</p>`;
+            mensaje += `<p>Resultado join(): "${resultado2}"</p>`;
+            
+            // Comparar si ambos métodos retornan el mismo valor
+            if (resultado1 === resultado2) {
+                mensaje += `<p><strong>Los métodos toString() y join() retornan el mismo valor</strong></p>`;
+            } else {
+                mensaje += `<p><strong>Los métodos toString() y join() retornan valores diferentes</strong></p>`;
+            }
+            
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

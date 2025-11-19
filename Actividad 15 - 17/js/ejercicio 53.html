@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 53 - Operador condicional ?:</title>
+</head>
+<body>
+    <h1>Cálculo de descuentos con operador ternario</h1>
+    <button onclick="calcularDescuento()">Calcular descuento</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function calcularDescuento() {
+            let sueldoBruto = parseFloat(prompt("Ingrese el sueldo bruto del trabajador:"));
+            
+            if (isNaN(sueldoBruto) || sueldoBruto < 0) {
+                document.getElementById("resultado").innerHTML = 
+                    "<p><strong>Error:</strong> Ingrese un sueldo válido</p>";
+                return;
+            }
+            
+            // Usar operador condicional ternario para determinar el porcentaje de descuento
+            let porcentajeDescuento = sueldoBruto > 10000 ? 10 : 5;
+            
+            // Calcular el descuento
+            let descuento = sueldoBruto * (porcentajeDescuento / 100);
+            let sueldoNeto = sueldoBruto - descuento;
+            
+            let mensaje = `
+                <h3>Cálculo de descuentos:</h3>
+                <p>Sueldo bruto: $${sueldoBruto.toFixed(2)}</p>
+                <p>Porcentaje de descuento: ${porcentajeDescuento}% ${sueldoBruto > 10000 ? '(supera $10,000)' : '(no supera $10,000)'}</p>
+                <p>Descuento aplicado: $${descuento.toFixed(2)}</p>
+                <p>Sueldo neto: $${sueldoNeto.toFixed(2)}</p>
+                <p><em>Operador ternario usado: porcentajeDescuento = sueldoBruto > 10000 ? 10 : 5;</em></p>
+            `;
+            
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

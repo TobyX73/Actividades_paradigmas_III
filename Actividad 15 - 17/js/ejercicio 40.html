@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 40 - Objetos literales</title>
+</head>
+<body>
+    <script>
+        let participante = {
+            nombre: "Juan",
+            puntos: 0,
+            
+            imprimir: function() {
+                document.write(`<p>Participante: ${this.nombre}, Puntos: ${this.puntos}</p>`);
+            },
+            
+            aumentarPuntos: function(cantidad) {
+                this.puntos += cantidad;
+            },
+            
+            verificarSiGano: function() {
+                if (this.puntos > 100) {
+                    document.write(`<p>¡${this.nombre} ha ganado con ${this.puntos} puntos!</p>`);
+                } else {
+                    document.write(`<p>${this.nombre} aún no ha ganado. Puntos actuales: ${this.puntos}</p>`);
+                }
+            }
+        };
+        
+        // Ejemplo de uso
+        participante.imprimir();
+        participante.aumentarPuntos(50);
+        participante.verificarSiGano();
+        participante.aumentarPuntos(60);
+        participante.verificarSiGano();
+    </script>
+</body>
+</html>

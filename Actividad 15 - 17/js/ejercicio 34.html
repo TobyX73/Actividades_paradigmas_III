@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 34 - Abrir ventana</title>
+</head>
+<body>
+    <h1>Propiedades de Screen</h1>
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <script>
+        function abrirVentana() {
+            var anchoPantalla = window.screen.width;
+            var alturaPantalla = window.screen.height;
+            var alturaVentana = alturaPantalla / 2;
+            window.open("", "", "width=" + anchoPantalla + ",height=" + alturaVentana);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 26 - Control de Acceso</title>
+</head>
+<body>
+    <div>
+        <h1>Control de Acceso</h1>
+        <p>Por favor, confirma tu edad para acceder al sitio:</p>
+        <div>
+            <div>
+                <input type="radio" id="mayor" name="edad" value="mayor">
+                <label for="mayor">Sí, soy mayor de 18 años</label>
+            </div>
+            <div>
+                <input type="radio" id="menor" name="edad" value="menor">
+                <label for="menor">No, soy menor de 18 años</label>
+            </div>
+        </div>
+        <button id="verificar">Verificar Acceso</button>
+    </div>
+    <script>
+        document.getElementById('verificar').addEventListener('click', function() {
+            const opcionMayor = document.getElementById('mayor').checked;
+            const opcionMenor = document.getElementById('menor').checked;
+            if (!opcionMayor && !opcionMenor) {
+                alert('Por favor, selecciona una opción');
+                return;
+            }
+            if (opcionMayor) {
+                alert('¡Acceso permitido! Bienvenido/a al sitio.');
+            } else {
+                alert('Lo siento, debes ser mayor de 18 años para acceder a este sitio.');
+            }
+        });
+    </script>
+</body>
+</html>

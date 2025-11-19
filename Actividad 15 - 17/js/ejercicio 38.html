@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 38 - Personas y Empresa</title>
+</head>
+<body>
+    <script>
+        class Persona {
+            constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+        }
+        
+        class Empresa {
+            constructor(edadTope) {
+                this.edadTope = edadTope;
+            }
+            
+            puedeTrabajar(persona) {
+                return persona.edad <= this.edadTope;
+            }
+        }
+        
+        const empresa = new Empresa(60);
+        let personas = [];
+        
+        for (let i = 1; i <= 3; i++) {
+            let nombre = prompt(`Ingrese el nombre de la persona ${i}:`);
+            let edad = parseInt(prompt(`Ingrese la edad de ${nombre}:`));
+            personas.push(new Persona(nombre, edad));
+        }
+        
+        let inhabilitadas = 0;
+        personas.forEach(p => {
+            if (!empresa.puedeTrabajar(p)) {
+                document.write(`<p>${p.nombre} está inhabilitado (edad: ${p.edad})</p>`);
+                inhabilitadas++;
+            } else {
+                document.write(`<p>${p.nombre} puede ingresar como trabajador.</p>`);
+            }
+        });
+        
+        document.write(`<h3>Total de personas inhabilitadas: ${inhabilitadas}</h3>`);
+    </script>
+</body>
+</html>

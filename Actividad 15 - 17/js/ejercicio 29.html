@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 29 - Abrir Enlaces con onMouseOver</title>
+    <meta charset="UTF-8">
+    <style>
+        .mail-link {
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            background-color: #f0f0f0;
+            text-decoration: none;
+            color: black;
+            border: 1px solid #ccc;
+        }
+        .mail-link:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Servicios de Email</h1>
+    <p>Pasa el mouse sobre los enlaces para abrir los sitios:</p>
+    
+    <a href="#" class="mail-link" onMouseOver="abrirPestana('https://gmail.com')">Gmail</a>
+    <a href="#" class="mail-link" onMouseOver="abrirPestana('https://mail.yahoo.com')">Yahoo</a>
+    <a href="#" class="mail-link" onMouseOver="abrirPestana('https://outlook.live.com')">Outlook</a>
+    
+    <script>
+        function abrirPestana(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 32 - location</title>
+</head>
+<body>
+    <h1>Redirección Aleatoria</h1>
+    <button onclick="aleatorio()">Aleatorio</button>
+    <script>
+        function aleatorio() {
+            let num;
+            num = Math.random() * 3; // Genera entre 0 y 2.99...
+            num = parseInt(num); // Obtiene 0, 1 o 2
+            if (num == 0) {
+                window.location = 'https://outlook.com';
+            } else if (num == 1) {
+                window.location = 'https://gmail.com';
+            } else if (num == 2) {
+                window.location = 'https://yahoo.com';
+            }
+        }
+    </script>
+</body>
+</html>

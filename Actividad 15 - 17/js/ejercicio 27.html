@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 27 - Control TEXTAREA</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Página de Visitas</h1>
+    <form>
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre" size="30"><br><br>
+        
+        <label>Email:</label><br>
+        <input type="email" id="email" size="30"><br><br>
+        
+        <label>Comentarios:</label><br>
+        <textarea id="comentarios" rows="5" cols="40"></textarea><br><br>
+        
+        <button type="button" onclick="mostrarDatos()">Enviar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        function mostrarDatos() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var comentarios = document.getElementById("comentarios").value;
+            var mensaje = "Datos ingresados:\n\n";
+            mensaje = mensaje + "Nombre: " + nombre + "\n";
+            mensaje = mensaje + "Email: " + email + "\n";
+            mensaje = mensaje + "Comentarios: " + comentarios;
+            
+            alert(mensaje);
+        }
+    </script>
+</body>
+</html>
