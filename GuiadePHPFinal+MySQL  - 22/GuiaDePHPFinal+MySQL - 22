@@ -1,0 +1,64 @@
+<?php
+include('includes/conexion.php');
+conectar(); 
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>AA 22 - Guía PHP y MySQL</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="consola"></div>
+    
+    <nav>
+        <ul>
+            <li><a href="index.php">Inicio</a></li>
+            
+            <?php
+            // Seleccionamos todos los items de la tabla 'menu'
+            $sql_menu = mysqli_query($con, "SELECT * FROM menu");
+            
+            // Verificamos si hay resultados
+            if(mysqli_num_rows($sql_menu) > 0) {
+                // Recorremos cada fila para crear los <li> del menú
+                while($item = mysqli_fetch_array($sql_menu)) {
+                    // Usamos el campo 'modulo' para el enlace y 'nombre' para el texto
+                    echo '<li><a href="index.php?modulo=' . $item['modulo'] . '">' . $item['nombre'] . '</a></li>';
+                }
+            }
+            ?>
+        </ul>
+    </nav>
+
+    <header>
+        <br>
+        <h1>Guía AA 22: PHP + MySQL</h1>
+    </header>
+
+    <main>
+        <?php
+        // Si existe la variable 'modulo' en la URL, cargamos ese archivo
+        if(!empty($_GET['modulo'])) {
+            // Es buena práctica validar que el archivo exista antes de incluirlo
+            $archivo = 'modulos/' . $_GET['modulo'] . '.php';
+            
+            if(file_exists($archivo)) {
+                include($archivo);
+            } else {
+                echo "<p>Error: El módulo solicitado no existe.</p>";
+            }
+        } 
+        else {
+            // Página de inicio (cuando no se ha seleccionado ningún ejercicio)
+            echo "<h2>Bienvenido a la Guía de PHP Final.</h2>";
+            echo "<p>Selecciona un ejercicio del menú superior para comenzar.</p>";
+        }
+        ?>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

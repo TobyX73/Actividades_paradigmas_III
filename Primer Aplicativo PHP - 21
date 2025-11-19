@@ -1,0 +1,116 @@
+<?php
+
+// Inicializamos variables para evitar errores de "undefined"
+$nombre = "";
+$edad = "";
+$hobby = "";
+$mensaje_get = "";
+$mostrar_tarjeta = false;
+$tipo_perfil = "";
+$clase_estilo = "";
+
+// 1. CAPTURAR VARIABLE GET (Ej: perfilador.php?saludo=Visitante)
+// Verificamos si existe el parámetro 'saludo' en la URL
+if (isset($_GET['saludo'])) {
+    // Usamos htmlspecialchars para evitar inyección de código (XSS)
+    $saludo_recibido = htmlspecialchars($_GET['saludo']);
+    $mensaje_get = "¡Bienvenido al sistema, " . $saludo_recibido . "!";
+}
+
+// 2. PROCESAR EL FORMULARIO (MÉTODO POST)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Recibimos y sanitizamos los datos
+    $nombre = htmlspecialchars($_POST['nombre']);
+    $edad = (int) $_POST['edad']; // Forzamos a que sea un entero
+    $hobby = htmlspecialchars($_POST['hobby']);
+
+    // 3. IMPLEMENTAR LÓGICA (IF/ELSE)
+    // Definimos el tipo de perfil basado en la edad
+    if ($edad >= 30) {
+        $tipo_perfil = "Perfil Senior";
+        $clase_estilo = "senior"; // Clase CSS para cambiar el color
+    } else {
+        $tipo_perfil = "Perfil en Desarrollo";
+        $clase_estilo = "dev"; // Clase CSS para cambiar el color
+    }
+
+    // Habilitamos la bandera para mostrar la tarjeta
+    $mostrar_tarjeta = true;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfilador PHP</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        
+        /* Estilos del Formulario */
+        form { display: flex; flex-direction: column; gap: 15px; text-align: left; margin-top: 20px; }
+        label { font-weight: bold; color: #555; }
+        input[type="text"], input[type="number"] { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; }
+        input[type="submit"] { background-color: #28a745; color: white; border: none; padding: 12px; font-size: 16px; cursor: pointer; border-radius: 5px; transition: background 0.3s; }
+        input[type="submit"]:hover { background-color: #218838; }
+
+        /* Estilos del Mensaje GET */
+        .alerta-get { background-color: #d1ecf1; color: #0c5460; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #bee5eb; }
+
+        /* Estilos de la Tarjeta Generada */
+        .tarjeta-resultado { margin-top: 30px; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: fadeIn 0.5s; }
+        .tarjeta-header { padding: 15px; color: white; font-size: 1.2em; font-weight: bold; }
+        .tarjeta-body { padding: 20px; text-align: left; background: #fff; }
+        .tarjeta-body p { margin: 10px 0; font-size: 1.1em; }
+        
+        /* Variantes de estilo dinámico */
+        .senior { background-color: #007bff; /* Azul para Senior */ }
+        .dev { background-color: #e83e8c; /* Rosa para Desarrollo */ }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Generador de Tarjetas de Perfil</h1>
+
+        <?php if (!empty($mensaje_get)): ?>
+            <div class="alerta-get">
+                <?php echo $mensaje_get; ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST" action="">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana García" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" placeholder="Ej: 25" required>
+
+            <label for="hobby">Hobby Principal:</label>
+            <input type="text" id="hobby" name="hobby" placeholder="Ej: Programar en PHP" required>
+
+            <input type="submit" value="Generar Perfil">
+        </form>
+
+        <?php if ($mostrar_tarjeta): ?>
+            <div class="tarjeta-resultado">
+                <div class="tarjeta-header <?php echo $clase_estilo; ?>">
+                    <?php echo $tipo_perfil; ?>
+                </div>
+                <div class="tarjeta-body">
+                    <p><strong>Nombre:</strong> <?php echo $nombre; ?></p>
+                    <p><strong>Edad:</strong> <?php echo $edad; ?> años</p>
+                    <p><strong>Hobby:</strong> <?php echo $hobby; ?></p>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+
+</body>
+</html>
